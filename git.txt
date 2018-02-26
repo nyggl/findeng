@@ -1,0 +1,38 @@
+git上传
+1 git add .
+2 git commit -m .
+3 get push origin master  上传代码
+//如果3失败了
+输入git pull origin master然后再输入
+
+代码管理:
+创建本地代码仓库:
+1下载安装git bash
+2新建的本地存储文件夹，点击鼠标右键，选择"Git Bash Here"
+3.进行基础配置，作为 git 的基础配置，作用是告诉 git 你是谁，你输入的信息将出现在你创建的提交中，使用下面两条命令：
+　　git config --global user.name "你的名字或昵称"
+　　git config --global user.email "你的邮箱"
+4、在gitspace文件夹中执行下面命令，完成初始化
+   git init
+   git remote add origin <你的项目地址>
+5、如果你想克隆，只需要执行命令
+   git clone <项目地址>
+6、进入你已经初始化好的或者克隆项目的目录,然后执行：
+  从服务器下更新项目，因为已经clone过，所以不需要再更新
+  git pull origin master 
+
+
+…or create a new repository on the command line
+
+echo "# findeng" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/nyggl/findeng.git
+git push -u origin master
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/nyggl/findeng.git
+git push -u origin master
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.

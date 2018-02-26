@@ -1,0 +1,50 @@
+						微信小程序
+APPip:wxe838265c9a83644a
+小程序结构:
+app.json:文件用来对微信小程序进行全局配置，决定页面文件的路径、窗口表现、设置网络超时时间、设置多 tab 等
+wxss文件是界面文件
+wxss文件样式文件
+js是运算响应文件
+小程序特有的尺寸rpx
+
+
+生命周期函数
+onLoad: 页面加载
+一个页面只会调用一次，可以在 onLoad 中获取打开当前页面所调用的 query 参数。
+onShow: 页面显示
+每次打开页面都会调用一次。
+onReady: 页面初次渲染完成
+一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互。
+对界面的设置如wx.setNavigationBarTitle请在onReady之后设置。详见生命周期
+onHide: 页面隐藏
+当navigateTo或底部tab切换时调用。
+onUnload: 页面卸载
+当redirectTo或navigateBack的时候调用。
+生命周期的调用以及页面的路由方式
+
+标签组件:
+<map>地图标签:<map bindmarkertap="地图标志事件" longitude="焦点经度" latitude="焦点纬度"></map>
+<switch></switch>
+<block>:并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。
+
+
+杂:
+1.默认数组的当前项的下标变量名默认为 index，数组当前项的变量名默认为 item
+2.事件的冒泡，会向上传递事件响应，非冒泡事件不会
+3.冒泡绑定和非冒泡绑定事件：
+如在下边这个例子中，点击 inner view 会先后调用handleTap3和handleTap2(因为tap事件会冒泡到 middle view，而 middle view 阻止了 tap 事件冒泡，不再向父节点传递)，点击 middle view 会触发handleTap2，点击 outer view 会触发handleTap1。
+<view id="outer" bindtap="handleTap1">
+  outer view
+  <view id="middle" catchtap="handleTap2">
+    middle view
+    <view id="inner" bindtap="handleTap3">
+      inner view
+    </view>
+  </view>
+</view>
+4.
+(1)捕获阶段位于冒泡阶段之前，且在捕获阶段中，事件到达节点的顺序与冒泡阶段恰好相反
+(2)需要在捕获阶段监听事件时，可以采用capture-bind、capture-catch关键字，后者将中断捕获阶段和取消冒泡阶段
+
+
+
